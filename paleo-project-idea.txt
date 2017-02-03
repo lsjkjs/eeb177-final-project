@@ -1,0 +1,25 @@
+Project Idea
+
+I am interested in the diversity of the clade Aves (birds) through time. I would like look at the genera of the clade and study their speciation and extinction through itme.
+*or study the clade Theropoda or Synapsida
+
+I plan to use occurence data to study the diversity of the clade Aves. I plan to plot the stratigraphic record of the genera in the clade and utilize the occurrence data to calculate speciation and extinction rates through time. I will have to use Pyrate to do this.
+
+
+1. Aves
+Command:
+tail -n +18 Aves_pbdb_data.csv | cut -d "," -f 6 | sort | uniq | wc -l
+# of unique species:
+2739
+
+2. Theropoda
+Command:
+tail -n +18 Theropoda_pbdb_data.csv | cut -d "," -f 6 | sort | uniq | wc -l
+# of unique species:
+4174
+
+3. Synapsida
+Command:
+tail -n +18 Synapsida_pbdb_data.csv | cut -d "," -f 6 | sort | uniq | wc -l
+# of unique species:
+28363
