@@ -5,5 +5,5 @@ I will plot the diversity of Aves through time.
 I will also be looking at the genera of Aves and plot it in a stratigraphic format. 
 Finally, I will utilize the occurrence data to calculate speciaiton and extinction rates through time. 
 
-The file input-output_pseudocode.ipynb contains the pseudocode of how to how to input file for output.
-The file loop_pseudocode.ipynb contains the pseudocode of how to manipulate data over a loop for the project.
+The file input-output_pseudocode.ipynb contains the pseudocode of how to input data for to output the plots.
+The file loop_pseudocode.ipynb contains the pseudocode of how to manipulate data over a loop for the stratiographic plot.
