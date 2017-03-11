@@ -1,15 +1,19 @@
     library(ggplot2)
     Aves <- read.csv("output_Aves.csv", header = F, as.is = T)
+
+    ## Warning in read.table(file = file, header = header, sep = sep, quote =
+    ## quote, : line 1 appears to contain embedded nulls
+
     names(Aves) <- c("genus", "species", "minage", "maxage")
     head(Aves)
 
-    ##             genus              species    minage    maxage
-    ## 1       Abavornis  Abavornis bonaparti  83.25000  83.25000
-    ## 2 Aberratiodontus  Aberratiodontus wui 119.00000 119.00000
-    ## 3       Accipiter            Accipiter   0.00585   3.35000
-    ## 4       Accipiter    Accipiter cooperi   0.06885   0.06885
-    ## 5       Accipiter  Accipiter fasciatus   0.00585   0.00585
-    ## 6       Accipiter   Accipiter gentilis   0.06300   0.45350
+    ##           genus                   species  minage  maxage
+    ## 1      Aramidae                  Aramidae  11.950  11.950
+    ## 2        Matuku          Matuku otagoense  17.450  17.450
+    ## 3 Iberomesornis    Iberomesornis romerali 127.725 127.725
+    ## 4      Coliidae                  Coliidae  31.150  31.150
+    ## 5  Phorusrhacos  Phorusrhacos longissimus  13.789  19.500
+    ## 6   Parvirallus      Parvirallus gracilis  39.650  44.550
 
     Aves_occ <- ggplot(Aves, aes( species, ymin = maxage, ymax=minage, colour = genus))
     Aves_occ <- Aves_occ + geom_linerange()
@@ -20,10 +24,3 @@
     Aves_occ #contains whole data
 
 ![](plot_Aves_files/figure-markdown_strict/unnamed-chunk-1-1.png)
-
-    Aves_occ2 <- Aves_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40)) #zooms into the first 4mya
-    Aves_occ2
-
-    ## Warning: Removed 390 rows containing missing values (geom_linerange).
-
-![](plot_Aves_files/figure-markdown_strict/unnamed-chunk-1-2.png)
