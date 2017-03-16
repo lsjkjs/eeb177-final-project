@@ -2,7 +2,7 @@
 title: "plot_graphs.Rmd"
 author: "Jin Sun Kim"
 date: "March 10, 2017"
-output: md_document
+output: html_document
 ---
 
 ```{r}
@@ -19,5 +19,7 @@ Aves_occ <- Aves_occ + labs(title = "Aves Fossil Occurrences", x = "Species", y 
 Aves_occ <- Aves_occ + theme(axis.text.y = element_text(size=3), axis.ticks.y=element_blank())
 Aves_occ #contains whole data
 
+ggsave("Aves_species_ranges.png", plot = Aves_occ)
 
 ```
+
