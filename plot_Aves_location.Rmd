@@ -1,0 +1,50 @@
+---
+title: "plot_fossil_maps"
+author: "Jin Sun Kim"
+date: "March 15, 2017"
+output: md_document
+---
+
+```{r}
+chuni <- read.csv("chuni_location.csv", header = F, as.is = T) #read file containing location data for species uhangrichnus chuni
+colnames(chuni) <- c("species", "lon", "lat")
+tirarensis <- read.csv("tirarensis_location.csv", header = F, as.is = T) #read file containing location data for species pelecanus tirarensis
+colnames(tirarensis) <- c("species", "lon", "lat")
+
+library(rworldmap) #library for worldmap
+newmap <- getMap(resolution = "low")
+
+plot(newmap) + points(chuni$lon, chuni$lat, pch = 19, col = "red", cex = 2) + points(tirarensis$lon, tirarensis$lat, pch = 19, col = "blue", cex = 2) #plot worldmap with red points for species uhangrichnus chuni location and blue points for species pelecanus tirarensis
+
+```
+
+
+```{r}
+chuni <- read.csv("chuni_location.csv", header = F, as.is = T) #read file containing location data for species uhangrichnus chuni
+colnames(chuni) <- c("species", "lon", "lat")
+head(chuni)
+
+library(rworldmap) #library for worldmap
+newmap <- getMap(resolution = "low")
+library(ggmap)
+asia.limits <- geocode(c("Shanghai, China", "Shenyang, China", "Sapporo, Japan", "Fukuoka, Japan"))
+asia.limits #set the corners of the plot using GoogleMaps
+
+plot(newmap, xlim = range(asia.limits$lon), ylim = range(asia.limits$lat), asp =1) + points(chuni$lon, chuni$lat, col = "red", cex = 2) #zoom into southeast Asia and plot location for species uhangrichnus chuni
+
+```
+```{r}
+tirarensis <- read.csv("tirarensis_location.csv", header = F, as.is = T) #read file containing location data for species pelecanus tirarensis
+colnames(tirarensis) <- c("species", "lon", "lat")
+head(tirarensis)
+
+library(rworldmap) #library for worldmap
+newmap <- getMap(resolution = "low")
+library(ggmap)
+middle_east.limits <- geocode(c("Khartoum, Sudan", "Muscat, Oman", "Antalya, Turkey", "Tehran, Iran"))
+middle_east.limits #set the corners of the plot using GoogleMaps
+
+plot(newmap, xlim = range(middle_east.limits$lon), ylim = range(middle_east.limits$lat), asp =1) + points(tirarensis$lon, tirarensis$lat, col = "blue", cex = 2) #zoom into northeast MiddleEast and plot location for species pelecanus tirarensis
+
+
+```
